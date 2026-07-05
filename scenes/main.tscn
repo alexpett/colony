@@ -1,0 +1,49 @@
+[gd_scene load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://scripts/game_manager.gd" id="1"]
+[ext_resource type="PackedScene" path="res://scenes/ant.tscn" id="2"]
+[ext_resource type="PackedScene" path="res://scenes/food_node.tscn" id="3"]
+[ext_resource type="PackedScene" path="res://scenes/colony.tscn" id="4"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1")
+
+[node name="Background" type="ColorRect" parent="."]
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0.35, 0.25, 0.15, 1)
+
+[node name="Colony" parent="." instance=ExtResource("4")]
+position = Vector2(576, 324)
+
+[node name="FoodNodes" type="Node2D" parent="."]
+
+[node name="Food1" parent="FoodNodes" instance=ExtResource("3")]
+position = Vector2(150, 150)
+
+[node name="Food2" parent="FoodNodes" instance=ExtResource("3")]
+position = Vector2(1000, 150)
+
+[node name="Food3" parent="FoodNodes" instance=ExtResource("3")]
+position = Vector2(150, 500)
+
+[node name="Food4" parent="FoodNodes" instance=ExtResource("3")]
+position = Vector2(1000, 500)
+
+[node name="Food5" parent="FoodNodes" instance=ExtResource("3")]
+position = Vector2(576, 100)
+
+[node name="Ant" parent="." instance=ExtResource("2")]
+position = Vector2(576, 420)
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="FoodLabel" type="Label" parent="UI"]
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 340.0
+offset_bottom = 60.0
+theme_override_font_sizes/font_size = 24
+text = "Food collected: 0"
